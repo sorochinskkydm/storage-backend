@@ -5,6 +5,8 @@ import { UsersModule } from "./users/users.module";
 import { FilesModule } from "./files/files.module";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { ConfigModule } from "@nestjs/config";
+import { UserEntity } from "./users/entities/user.entity";
+import { FileEntity } from "./files/entities/file.entity";
 
 @Module({
   imports: [
@@ -21,7 +23,7 @@ import { ConfigModule } from "@nestjs/config";
       username: process.env.POSTGRES_USERNAME,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      entities: [],
+      entities: [UserEntity, FileEntity],
       synchronize: true,
     }),
   ],
